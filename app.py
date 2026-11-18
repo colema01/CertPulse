@@ -1377,12 +1377,6 @@ class CertPulseApi:
 
             existing = self._read_csv()
 
-
-            # IP + port uniquely identifies a monitored endpoint.
-            #
-            # This means rescanning 10.1.125.20:443 updates the
-            # existing entry rather than creating duplicates.
-
             by_endpoint = {
 
                 (
@@ -2189,13 +2183,6 @@ class CertPulseApi:
                 "Enter an IP address, range, or CIDR."
             )
 
-
-        # -----------------------------------------------------
-        # CIDR
-        # Example:
-        # 10.1.125.0/24
-        # -----------------------------------------------------
-
         if "/" in value:
 
             try:
@@ -2255,13 +2242,6 @@ class CertPulseApi:
                 for ip in hosts
 
             ]
-
-
-        # -----------------------------------------------------
-        # IP RANGE
-        # Example:
-        # 10.1.125.1-10.1.125.254
-        # -----------------------------------------------------
 
         if "-" in value:
 
